@@ -1,0 +1,20 @@
+= Command Line Password Management
+:author:    Berend Tober <btober@computer.org>
+:copyright: 2016, Berend Tober
+:backend:   slidy
+:max-width: 60em
+:data-uri:
+:icons:
+:asciimath:
+:toc:
+
+== Command Line Password Management
+
+Berend Tober <btober@computer.org>
+
+References
+
+ https://alexcabal.com/creating-the-perfect-gpg-keypair/
+ https://www.passwordstore.org/
+
+
