@@ -5,7 +5,6 @@
 :max-width: 60em
 :data-uri:
 :icons:
-:asciimath:
 :toc:
 
 == Command Line Password Management
