@@ -1,7 +1,7 @@
 == Create a Public Key: Initialization
 
 ----------------------------------------------------------------------------
-[aol@dc7800 ~]$ gpg --gen-key
+$ gpg --gen-key
 
 gpg (GnuPG) 1.4.19; Copyright (C) 2015 Free Software Foundation, Inc.
 This is free software: you are free to change and redistribute it.
@@ -17,25 +17,16 @@ gpg: keyring '/home/aol/.gnupg/pubring.gpg' created
 
 == Create a Public Key: Initialization
 
-[source,sh,numbered]
+[subs="quotes"]
 ----------------------------------------------------
-[aol@dc7800 ~]$ tree -a
+$ tree -a
 .
-|-- .bash_history
-|-- .bash_logout
-|-- .bash_profile
-|-- .bashrc
-|-- *.gnupg*
-|   |-- *gpg.conf*
-|   |-- *pubring.gpg*
-|   \-- *secring.gpg*
-\-- .local
-    \-- share
-        \-- systemd
-            \-- user -> ../../../.config/systemd/user
-
-4 directories, 8 files
+└── .gnupg
+    ├── gpg.conf
+    ├── pubring.gpg
+    └── secring.gpg
 ----------------------------------------------------
+
 
 
 == Create a Public Key: Key Type
@@ -109,110 +100,105 @@ sub   4096R/9C5F2578 2016-12-11
 ----------------------------------------------------------------------------
 
 
-== Create a Public Key: Entropy
+== Create a Public Key: Directory Hierarchy
 
-
-[source,sh,numbered]
+[subs="quotes"]
 ----------------------------------------------------
-[aol@dc7800 ~]$ tree -a
+$ tree -a
 .
-|-- .bash_history
-|-- .bash_logout
-|-- .bash_profile
-|-- .bashrc
-|-- .gnupg
-|   |-- gpg.conf
-|   |-- pubring.gpg
-|   |-- *pubring.gpg~*
-|   |-- *random_seed*
-|   |-- secring.gpg
-|   \-- *trustdb.gpg*
-\-- .local
-    \-- share
-        \-- systemd
-            \-- user -> ../../../.config/systemd/user
-
-4 directories, 11 files
+└── .gnupg
+    ├── gpg.conf
+    ├── *private-keys-v1.d*
+    ├── pubring.gpg
+    ├── *pubring.gpg~*
+    ├── *random_seed*
+    ├── secring.gpg
+    ├── *S.gpg-agent*
+    └── *trustdb.gpg*
 ----------------------------------------------------
+
+== List Keys
+
+[subs="quotes"]
+....................................................
+$ gpg --list-keys
+/home/aol/.gnupg/pubring.gpg
+----------------------------
+pub   4096R/407DFD77 2016-12-13
+uid                  Berend Tober <btober@computer.org>
+sub   4096R/96C7662E 2016-12-13
+....................................................
 
 
 == Initialize Pass Utility
 
-[source,sh,numbered]
+[subs="quotes"]
 ----------------------------------------------------
-[aol@dc7800 ~]$ pass init btober
+$ pass init btober
 mkdir: created directory '/home/aol/.password-store'
 Password store initialized for btober.
 ----------------------------------------------------
 
 == Initialize Pass Utility
 
-[source,sh,numbered]
+[subs="quotes"]
 ----------------------------------------------------
-[aol@dc7800 ~]$ tree -a
+$ tree -a
 .
-|-- .bash_history
-|-- .bash_logout
-|-- .bash_profile
-|-- .bashrc
-|-- .gnupg
-|   |-- gpg.conf
-|   |-- pubring.gpg
-|   |-- pubring.gpg~
-|   |-- random_seed
-|   |-- secring.gpg
-|   \-- trustdb.gpg
-|-- .local
-|   \-- share
-|       \-- systemd
-|           \-- user -> ../../../.config/systemd/user
-\-- *.password-store*
-    \-- *.gpg-id*
-
-5 directories, 12 files
+├── .gnupg
+│   ├── gpg.conf
+│   ├── private-keys-v1.d
+│   ├── pubring.gpg
+│   ├── pubring.gpg~
+│   ├── random_seed
+│   ├── secring.gpg
+│   ├── S.gpg-agent
+│   └── trustdb.gpg
+└── *.password-store*
+    └── *.gpg-id*
 ----------------------------------------------------
+
+
+----------------------------------------------------
+$ cat .password-store/.gpg-id 
+btober
+----------------------------------------------------
+
+
 
 == Insert a Password
 
-[source,sh,numbered]
+[subs="quotes"]
 ----------------------------------------------------
-[aol@dc7800 ~]$ pass insert gmail.com    
+$ pass insert gmail.com    
 Enter password for gmail.com: mygmailpassword
 ----------------------------------------------------
 
 == Insert a Password
 
-[source,sh,numbered]
+[subs="quotes"]
 ----------------------------------------------------
-[aol@dc7800 ~]$ tree -a
+tree -a
 .
-|-- .bash_history
-|-- .bash_logout
-|-- .bash_profile
-|-- .bashrc
-|-- .gnupg
-|   |-- gpg.conf
-|   |-- pubring.gpg
-|   |-- pubring.gpg~
-|   |-- random_seed
-|   |-- secring.gpg
-|   \-- trustdb.gpg
-|-- .local
-|   \-- share
-|       \-- systemd
-|           \-- user -> ../../../.config/systemd/user
-\-- .password-store
-    |-- .gpg-id
-    \-- *gmail.com.gpg*
-
-5 directories, 13 files
+├── .gnupg
+│   ├── gpg.conf
+│   ├── private-keys-v1.d
+│   ├── pubring.gpg
+│   ├── pubring.gpg~
+│   ├── random_seed
+│   ├── secring.gpg
+│   ├── S.gpg-agent
+│   └── trustdb.gpg
+└── .password-store
+    ├── *gmail.com.gpg*
+    └── .gpg-id
 ----------------------------------------------------
 
 
 == Create a Public Key: Initialization
 
 ----------------------------------------------------
-[aol@dc7800 ~]$ hexdump -C .password-store/gmail.com.gpg 
+$ hexdump -C .password-store/gmail.com.gpg 
 00000000  85 02 0c 03 6c a7 54 4b  9c 5f 25 78 01 10 00 a5  |....l.TK._%x....|
 00000010  ae 8f f0 7a 7b 6f d9 cf  61 72 91 53 ba f0 3e 9b  |...z{o..ar.S..>.|
 00000020  e8 3f 2a 10 c1 85 f9 5b  79 12 d5 01 6f ac 9f 75  |.?*....[y...o..u|
@@ -257,27 +243,27 @@ Enter password for gmail.com: mygmailpassword
 
 == Organize a Password Heirarchy
 
-[source,sh,numbered]
+[subs="quotes"]
 ----------------------------------------------------
-[aol@dc7800 ~]$ pass insert work/email
+$ pass insert work/email
 mkdir: created directory '/home/aol/.password-store/work'
 Enter password for work/email: myworkpassword
 ----------------------------------------------------
 
-[source,sh,numbered]
+[subs="quotes"]
 ----------------------------------------------------
-[aol@dc7800 ~]$ pass insert work/benefits
+$ pass insert work/benefits
 Enter password for work/benefits: mybenefitspassword
 ----------------------------------------------------
 
-[source,sh,numbered]
+[subs="quotes"]
 ----------------------------------------------------
-[aol@dc7800 ~]$ pass insert home/email
+$ pass insert home/email
 mkdir: created directory '/home/aol/.password-store/home'
 Enter password for home/email: myhomeemailpassword
 ----------------------------------------------------
 
-[source,sh,numbered]
+[subs="quotes"]
 ----------------------------------------------------
 [aol@dc7800 ~]$ pass insert home/netflix.com
 Enter password for home/netflix.com: mynetflixpassword
@@ -286,36 +272,164 @@ Enter password for home/netflix.com: mynetflixpassword
 
 == Organize a Password Heirarchy
 
-[source,sh,numbered]
+[subs="quotes"]
 ----------------------------------------------------
-[aol@dc7800 ~]$ cd .password-store/
-[aol@dc7800 .password-store]$ tree
+$ tree -a
 .
-|-- gmail.com.gpg
-|-- home
-|   |-- email.gpg
-|   \-- netflix.com.gpg
-\-- work
-    |-- benefits.gpg
-    \-- email.gpg
-
-2 directories, 5 files
+├── .gnupg
+│   ├── gpg.conf
+│   ├── private-keys-v1.d
+│   ├── pubring.gpg
+│   ├── pubring.gpg~
+│   ├── random_seed
+│   ├── secring.gpg
+│   ├── S.gpg-agent
+│   └── trustdb.gpg
+└── .password-store
+    ├── gmail.com.gpg
+    ├── .gpg-id
+    ├── *home*
+    │   ├── *email.gpg*
+    │   └── *netflix.com.gpg*
+    └── *work*
+        ├── *benefits.gpg*
+        └── *email.gpg*
 ----------------------------------------------------
 
 
 == List Password Heirarchy
 
-[source,sh,numbered]
+[subs="quotes"]
 ----------------------------------------------------
-[aol@dc7800 ~]$ pass ls
+$ pass ls
 Password Store
-|-- gmail.com
-|-- home
-|   |-- email
-|   \-- netflix.com
-\-- work
-    |-- benefits
-    \-- email
+├── gmail.com
+├── home
+│   ├── email
+│   └── netflix.com
+└── work
+    ├── benefits
+    └── email
 ----------------------------------------------------
 
+
+== Recall a Password
+
+[subs="quotes"]
+----------------------------------------------------
+$ pass work/benefits
+mybenefitspassword
+----------------------------------------------------
+
+
+== Password with Metadata
+
+[subs="quotes"]
+----------------------------------------------------
+$ pass insert -m banking/bankofamerica.com
+Enter contents of banking/bankofamerica.com and press Ctrl+D when finished:
+
+mybankingpassword
+username: btober
+url: https://www.bankofamerica.com
+challenge question 1: Smalltown, USA  
+challenge question 2: Auntie Thema
+----------------------------------------------------
+
+[subs="quotes"]
+----------------------------------------------------
+$ pass ls
+Password Store
+├── *banking*
+│   └── *bankofamerica.com*
+├── gmail.com
+├── home
+│   ├── email
+│   └── netflix.com
+└── work
+    ├── benefits
+    └── email
+----------------------------------------------------
+
+
+== Recall lists all the entered metadata:
+
+[subs="quotes"]
+----------------------------------------------------
+$ pass banking/bankofamerica.com
+mybankingpassword
+username: btober
+url: https://www.bankofamerica.com
+challenge question 1: Smalltown, USA  
+challenge question 2: Auntie Thema
+----------------------------------------------------
+
+
+== Auto-generated Passwords
+
+[subs="quotes"]
+----------------------------------------------------
+$ pass generate -n facebook.com 20
+The generated password to facebook.com is:
+0lPs6OXn15WMlzyyMSwK
+----------------------------------------------------
+
+[subs="quotes"]
+----------------------------------------------------
+$ pass ls
+Password Store
+├── banking
+│   └── bankofamerica.com
+├── *facebook.com*
+├── gmail.com
+├── home
+│   ├── email
+│   └── netflix.com
+└── work
+    ├── benefits
+    └── email
+----------------------------------------------------
+
+[subs="quotes"]
+----------------------------------------------------
+$ pass facebook.com
+0lPs6OXn15WMlzyyMSwK
+----------------------------------------------------
+
+
+== Command Line Help
+
+[subs="quotes"]
+----------------------------------------------------
+$ pass --help
+
+Usage:
+    pass init [--reencrypt,-e] gpg-id
+        Initialize new password storage and use gpg-id for encryption.
+        Optionally reencrypt existing passwords using new gpg-id.
+    pass [ls] [subfolder]
+        List passwords.
+    pass [show] [--clip,-c] pass-name
+        Show existing password and optionally put it on the clipboard.
+        If put on the clipboard, it will be cleared in 45 seconds.
+    pass insert [--no-echo,-n | --multiline,-m] [--force,-f] pass-name
+        Insert new password. Optionally, the console can be enabled to not
+        echo the password back. Or, optionally, it may be multiline. Prompt
+        before overwriting existing password unless forced.
+    pass edit pass-name
+        Insert a new password or edit an existing password using vi.
+    pass generate [--no-symbols,-n] [--clip,-c] [--force,-f] pass-name pass-length
+        Generate a new password of pass-length with optionally no symbols.
+        Optionally put it on the clipboard and clear board after 45 seconds.
+        Prompt before overwriting existing password unless forced.
+    pass rm [--recursive,-r] [--force,-f] pass-name
+        Remove existing password or directory, optionally forcefully.
+    pass git git-command-args...
+        If the password store is a git repository, execute a git command
+        specified by git-command-args.
+    pass help
+        Show this text.
+    pass version
+        Show version information.
+----------------------------------------------------
 
