@@ -15,5 +15,8 @@ References
 
  https://alexcabal.com/creating-the-perfect-gpg-keypair/
  https://www.passwordstore.org/
+ https://en.wikipedia.org/wiki/Wikipedia:Most_common_passwords/10000
+ https://www.mcsweeneys.net/articles/nihilistic-password-security-questions
+ https://qz.com/501073/the-top-100-passwords-on-ashley-madison/
 
 
