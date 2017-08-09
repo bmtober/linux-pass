@@ -1,3 +1,42 @@
+== Motivation - Password Insanity
+
+Web sites or applications often consider some of the following "strength" factors:
+
+----------------------------------------------------------------------------
+    Length ('e.g.,' 14 characters)
+    Mixed case
+    Not many repeated characters
+    Includes letters, numbers, and symbols
+    Does not include part of the username
+    Not similar to prior passwords
+    Does not hash to the same thing as a weak password
+    Is not a keyboard walk
+    Is not related to the individual
+    Does not end with the common suffixes
+    Does not start with the common prefixes
+    Limited Retry Lockout
+----------------------------------------------------------------------------
+
+== Frequent Change Requirements
+
+- 90 days
+- 60 days
+- 30 days, etc.
+
+== Password Security Challenge Questions
+
+'Thanks do Soheil Rezayazdi'
+ 
+- What is the name of your least favorite child?
+- In what year did you abandon your dreams?
+- What is the maiden name of your father’s mistress?
+- At what age did your childhood pet run away?
+- What was the name of your favorite unpaid internship?
+- What is your ex-spouse’s newest last name?
+- What sports team do you fetishize to avoid meaningful discussion with others?
+- What is the name of your favorite canceled TV show?
+- What was the middle name of your first rebound?
+
 == Create a Public Key: Initialization
 
 ----------------------------------------------------------------------------
@@ -21,10 +60,11 @@ gpg: keyring '/home/aol/.gnupg/pubring.gpg' created
 ----------------------------------------------------
 $ tree -a
 .
-└── .gnupg
-    ├── gpg.conf
-    ├── pubring.gpg
-    └── secring.gpg
+`-- .gnupg
+    |-- gpg.conf
+    |-- pubring.gpg
+    `-- secring.gpg
+
 ----------------------------------------------------
 
 
@@ -106,15 +146,14 @@ sub   4096R/9C5F2578 2016-12-11
 ----------------------------------------------------
 $ tree -a
 .
-└── .gnupg
-    ├── gpg.conf
-    ├── *private-keys-v1.d*
-    ├── pubring.gpg
-    ├── *pubring.gpg~*
-    ├── *random_seed*
-    ├── secring.gpg
-    ├── *S.gpg-agent*
-    └── *trustdb.gpg*
+`-- .gnupg
+    |-- gpg.conf
+    |-- *private-keys-v1.d*
+    |-- pubring.gpg
+    |-- *pubring.gpg~*
+    |-- *random_seed*
+    |-- secring.gpg
+    `-- *trustdb.gpg*
 ----------------------------------------------------
 
 == List Keys
@@ -145,17 +184,16 @@ Password store initialized for btober.
 ----------------------------------------------------
 $ tree -a
 .
-├── .gnupg
-│   ├── gpg.conf
-│   ├── private-keys-v1.d
-│   ├── pubring.gpg
-│   ├── pubring.gpg~
-│   ├── random_seed
-│   ├── secring.gpg
-│   ├── S.gpg-agent
-│   └── trustdb.gpg
-└── *.password-store*
-    └── *.gpg-id*
+|-- .gnupg
+|   |-- gpg.conf
+|   |-- private-keys-v1.d
+|   |-- pubring.gpg
+|   |-- pubring.gpg~
+|   |-- random_seed
+|   |-- secring.gpg
+|   `-- trustdb.gpg
+`-- *.password-store*
+    `-- *.gpg-id*
 ----------------------------------------------------
 
 
@@ -180,18 +218,17 @@ Enter password for gmail.com: mygmailpassword
 ----------------------------------------------------
 tree -a
 .
-├── .gnupg
-│   ├── gpg.conf
-│   ├── private-keys-v1.d
-│   ├── pubring.gpg
-│   ├── pubring.gpg~
-│   ├── random_seed
-│   ├── secring.gpg
-│   ├── S.gpg-agent
-│   └── trustdb.gpg
-└── .password-store
-    ├── *gmail.com.gpg*
-    └── .gpg-id
+|-- .gnupg
+|   |-- gpg.conf
+|   |-- private-keys-v1.d
+|   |-- pubring.gpg
+|   |-- pubring.gpg~
+|   |-- random_seed
+|   |-- secring.gpg
+|   `-- trustdb.gpg
+`-- .password-store
+    |-- .gpg-id
+    `-- *gmail.com.gpg*
 ----------------------------------------------------
 
 
@@ -276,24 +313,23 @@ Enter password for home/netflix.com: mynetflixpassword
 ----------------------------------------------------
 $ tree -a
 .
-├── .gnupg
-│   ├── gpg.conf
-│   ├── private-keys-v1.d
-│   ├── pubring.gpg
-│   ├── pubring.gpg~
-│   ├── random_seed
-│   ├── secring.gpg
-│   ├── S.gpg-agent
-│   └── trustdb.gpg
-└── .password-store
-    ├── gmail.com.gpg
-    ├── .gpg-id
-    ├── *home*
-    │   ├── *email.gpg*
-    │   └── *netflix.com.gpg*
-    └── *work*
-        ├── *benefits.gpg*
-        └── *email.gpg*
+|-- .gnupg
+|   |-- gpg.conf
+|   |-- private-keys-v1.d
+|   |-- pubring.gpg
+|   |-- pubring.gpg~
+|   |-- random_seed
+|   |-- secring.gpg
+|   `-- trustdb.gpg
+`-- .password-store
+    |-- .gpg-id
+    |-- gmail.com.gpg
+    |-- *home*
+    |   |-- *email.gpg*
+    |   `-- *netflix.com.gpg*
+    `-- *work*
+        |-- *benefits.gpg*
+        `-- *email.gpg*
 ----------------------------------------------------
 
 
@@ -303,13 +339,13 @@ $ tree -a
 ----------------------------------------------------
 $ pass ls
 Password Store
-├── gmail.com
-├── home
-│   ├── email
-│   └── netflix.com
-└── work
-    ├── benefits
-    └── email
+|-- gmail.com
+|-- home
+|   |-- email
+|   `-- netflix.com
+`-- work
+    |-- benefits
+    `-- email
 ----------------------------------------------------
 
 
@@ -340,15 +376,15 @@ challenge question 2: Auntie Thema
 ----------------------------------------------------
 $ pass ls
 Password Store
-├── *banking*
-│   └── *bankofamerica.com*
-├── gmail.com
-├── home
-│   ├── email
-│   └── netflix.com
-└── work
-    ├── benefits
-    └── email
+|-- *banking*
+|   `-- *bankofamerica.com*
+|-- gmail.com
+|-- home
+|   |-- email
+|   `-- netflix.com
+`-- work
+    |-- benefits
+    `-- email
 ----------------------------------------------------
 
 
@@ -378,16 +414,16 @@ The generated password to facebook.com is:
 ----------------------------------------------------
 $ pass ls
 Password Store
-├── banking
-│   └── bankofamerica.com
-├── *facebook.com*
-├── gmail.com
-├── home
-│   ├── email
-│   └── netflix.com
-└── work
-    ├── benefits
-    └── email
+|-- banking
+|   `-- bankofamerica.com
+|-- *facebook.com* 
+|-- gmail.com
+|-- home
+|   |-- email
+|   `-- netflix.com
+`-- work
+    |-- benefits
+    `-- email
 ----------------------------------------------------
 
 [subs="quotes"]

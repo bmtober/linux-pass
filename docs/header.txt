@@ -1,5 +1,5 @@
 = Command Line Password Management
-:author:    Berend Tober <btober@computer.org>
+:author:    Berend Tober
 :copyright: 2016, Berend Tober
 :backend:   slidy
 :max-width: 60em
@@ -9,7 +9,7 @@
 
 == Command Line Password Management
 
-Berend Tober <btober@computer.org>
+Berend Tober
 
 References
 
