@@ -1,42 +1,3 @@
-== A Selection of Password Examples
-
-----------------------------------------------------------------------------
-1111		booty		girls		magnum		rocket		squirt		trouble
-11111		bubba		guitar		matrix		rosebud		srinivas	trustno1
-111111		buddy		gunner		maverick	runner		star		tucker
-11111111	bulldog		hammer		mistress	rush2112	stars		turtle
-amateur		butthead	hannah		money		russia		startrek	united
-angel		casper		happy		monkey		samantha	starwars	vagina
-animal		cocacola	hardcore	monster		sammy		steelers	viper
-apollo		cock		harley		mother		samson		sticky		voodoo
-asdf		computer	hello		naked		sandra		stupid		voyager
-asdfgh		cookie		helpme		nascar		saturn		success		warrior
-ashley		cool		hentai		naughty		scooby		suckit		welcome
-asshole		corvette	hooters		ncc1701		scooter		summer		whatever
-badboy		cowboy		horney		nipple		scorpio		sunshine	willie
-banana		cumming		horny		nipples		scorpion	super		wilson
-baseball	cumshot		iloveyou	panties		scott		superman	winner
-batman		cunt		internet	password	secret		surfer		winston
-beaver		dick		iwantu		penis		sexsex		swimming	winter
-beavis		dirty		jeremy		phantom		sexy		sydney		wizard
-beer		eagle		jessica		porn		shadow		taylor		wolf
-bigcock		eagle1		john		porno		shannon		test		women
-bigdaddy	einstein	johnny		pussies		shaved		tester		xavier
-bigdick		enjoy		killer		pussy		shit		testing		xxxx
-bigdog		enter		king		qazwsx		sierra		theman		xxxxx
-bigtits		erotic		kitty		qwert		silver		thomas		xxxxxx
-bitch		extreme		knight		qwerty		skippy		thunder		xxxxxxxx
-bitches		football	ladies		qwertyui	slayer		thx1138		yamaha
-biteme		ford		lakers		rainbow		slut		tiffany		yankee
-blonde		fuck		legend		rangers		smith		tiger		yankees
-blowjob		fucked		letmein		rebecca		smokey		tigers		yellow
-blowme		fucker		love		redskins	snoopy		tigger		young
-bond007		fucking		lover		redsox		soccer		time		zxcvbn
-booboo		fuckme		lovers		redwings	sophie		tits		zxcvbnm
-boobs		fuckyou		lucky		richard		spanky		tomcat		zzzzzz
-booger		gandalf		maddog		robert		sparky		topgun
-boomer		girl		magic		rock		spider		toyota
-----------------------------------------------------------------------------
 
 
 == Motivation - Password Insanity
@@ -58,12 +19,6 @@ Web sites or applications often consider some of the following "strength" factor
     Limited Retry Lockout
 ----------------------------------------------------------------------------
 
-== Frequent Change Requirements
-
-- 90 days
-- 60 days
-- 30 days, etc.
-
 == Password Security Challenge Questions
 
 'Thanks do Soheil Rezayazdi'
@@ -77,6 +32,13 @@ Web sites or applications often consider some of the following "strength" factor
 - What sports team do you fetishize to avoid meaningful discussion with others?
 - What is the name of your favorite canceled TV show?
 - What was the middle name of your first rebound?
+
+== Frequent Change Requirements
+
+- 90 days
+- 60 days
+- 30 days, etc.
+
 
 == Create a Public Key: Initialization
 
@@ -140,7 +102,6 @@ Key does not expire at all
 Is this correct? (y/N) y
 
 ----------------------------------------------------------------------------
-
 
 == Create a Public Key: Identity
 
