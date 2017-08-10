@@ -111,10 +111,10 @@ from the Real Name, Comment and Email Address in this form:
     "Heinrich Heine (Der Dichter) <heinrichh@duesseldorf.de>"
 
 Real name: Berend Tober
-Email address: btober@computer.org
+Email address: btober@example.com
 Comment: An illustration for BLUG
 You selected this USER-ID:
-    "Berend Tober (An illustration for BLUG) <btober@computer.org>"
+    "Berend Tober (An illustration for BLUG) <btober@example.com>"
 
 Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
 
@@ -137,7 +137,7 @@ gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
 gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
 pub   4096R/7AD90EA3 2016-12-11
       Key fingerprint = 916E D7F1 9329 ACE2 7D09  76BA 53EB F9AC 7AD9 0EA3
-uid                  Berend Tober (Example for BLUG) <btober@computer.org>
+uid                  Berend Tober (Example for BLUG) <btober@example.com>
 sub   4096R/9C5F2578 2016-12-11
 ----------------------------------------------------------------------------
 
@@ -166,7 +166,7 @@ $ gpg --list-keys
 /home/aol/.gnupg/pubring.gpg
 ----------------------------
 pub   4096R/407DFD77 2016-12-13
-uid                  Berend Tober <btober@computer.org>
+uid                  Berend Tober <btober@example.com>
 sub   4096R/96C7662E 2016-12-13
 ....................................................
 
